@@ -1,8 +1,9 @@
 from app import db
+from flask_login import UserMixin
 
 
 # SqlAlchemy
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'users'  # nome da tabela
 
     id = db.Column(db.Integer, primary_key=True)
@@ -11,20 +12,6 @@ class User(db.Model):
     name = db.Column(db.String(40))
     email = db.Column(db.String, unique=True)
 
-    @property
-    def is_authenticated(self):
-        return True  # True se o usuário fornece credenciais válidas
-
-    @property
-    def is_active(self):
-        return True  # Se o usuário estiver ativo
-
-    @property
-    def is_anonymous(self):
-        return False  # Se o usuário estiver logado não esta anônimo. ÓBVIO
-
-    def get_id(self):  # carrega exclusivamente o usuário com seu id a partir de user_loader
-        return str(self.id)
 
     # Create do objeto usuário
     def __init__(self, username, password, name, email):
