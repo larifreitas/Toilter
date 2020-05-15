@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}{{ super() }}-Delete account{% endblock %}
+{% block content %}
+<div class="row">
+    <form action="{{ url_for('delete') }}" method="POST">
+        <div class="col-md-4 col-md-offset-4">
+            <h2 class="text-muted">Confirm Delete</h2>
+            <h5 class="text-muted">this action will result in the loss of your information!</h5>
+            {{ form.csrf_token }}
+        <div class="form-group">
+            <label>Password</label>
+            {{ form.password(class='form-control', placeholder='*******') }}
+            {% if form.errors.password %}
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                {% for e in form.errors.password %}
+                <li>{{ e }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-danger btn-block">Delete</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

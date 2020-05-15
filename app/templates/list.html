@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>List Users</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+<table class="table table-striped table-responsive table-bordered">
+    <thead>
+    <tr>
+
+        <td><em>Username</em></td>
+        <td><em>Password</em></td>
+        <td><em>Name</em></td>
+        <td><em>Email</em></td>
+        <td><em>ID</em></td>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for u in user %}
+    <tr>
+        <td>{{ u.username }}</td>
+        <td>{{ u.password }}</td>
+        <td>{{ u.name }}</td>
+        <td>{{ u.email }}</td>
+        <td>{{ u.id }}</td>
+    </tr>
+    </tbody>
+    {% endfor %}
+    </table>
+</body>
+</html>
