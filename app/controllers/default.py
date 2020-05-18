@@ -91,6 +91,6 @@ def edit():
         user.name = form.name.data
         user.email = form.email.data
         db.session.commit()
-        flash('Atualizado')
+        flash('updated successfully!')
         return redirect('/')
     return render_template('edit.html', form=form, id=session['user'])
