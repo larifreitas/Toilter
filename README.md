@@ -1,6 +1,6 @@
 # Toilter
 
-<ul><h3>-> Iniciando/Atualizando o db</h3>
+<h3>-> Iniciando/Atualizando o db</h3><ul>
 <li>run.py db init<br></li>
 <li>run.py db migrate<br /></li>
 <li>run.py db upgrate<br /></li>
